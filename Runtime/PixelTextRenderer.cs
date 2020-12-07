@@ -7,93 +7,135 @@ namespace Ascetic.Unity.PixelText
     [ExecuteAlways]
     public class PixelTextRenderer : MonoBehaviour
     {
-        
-        public GameObject Cube;
-        public PixelTextFont Font;
-
-        public string Text = "PIXEL TEXT";
-        public float TextSize = 1;
-        public TextAlignment TextAlignment = TextAlignment.Center;
-
-        private List<GameObject> _cubes = new List<GameObject>();
-        private string _drawedText = null;
-
-        private void Awake()
+        [SerializeField, PropertyField(nameof(Pixel)), NonNullCheck]
+        private GameObject _pixel;
+        public GameObject Pixel
         {
-            ClearText();
+            get { return _pixel; }
+            set
+            {
+                _pixel = value;
+                RenderText();
+            }
         }
 
-        private void Update()
+        [SerializeField, PropertyField(nameof(Font)), NonNullCheck]
+        private PixelTextFont _font;
+        public PixelTextFont Font
         {
-            if (Text != _drawedText)
+            get { return _font; }
+            set
             {
-                DrawText();
+                _font = value;
+                RenderText();
             }
+        }
+
+        [SerializeField, PropertyField(nameof(Text))]
+        private string _text = "PIXEL TEXT";
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
+                RenderText();
+            }
+        }
+
+        [SerializeField, PropertyField(nameof(TextSize))]
+        private float _textSize = 1;
+        public float TextSize
+        {
+            get { return _textSize; }
+            set
+            {
+                _textSize = value;
+                RenderText();
+            }
+        }
+
+        [SerializeField, PropertyField(nameof(TextAlignment))]
+        private TextAlignment _textAlignment = TextAlignment.Center;
+        public TextAlignment TextAlignment
+        {
+            get { return _textAlignment; }
+            set
+            {
+                _textAlignment = value;
+                RenderText();
+            }
+        }
+
+        private List<GameObject> _cubes = new List<GameObject>();
+
+        private void Start()
+        {
+            RenderText();
         }
 
         private void OnDestroy()
         {
-            ClearText();
+            DestroyText();
         }
 
         private float GetTextWidth()
         {
-            return Text.Length * Font.SizeX;
+            return _text.Length * _font.SizeX;
         }
 
         private float GetPixelScale()
         {
-            return TextSize / Font.SizeY;
+            return _textSize / _font.SizeY;
         }
 
-        private void DrawText()
+        private void RenderText()
         {
-            ClearText();
+            DestroyText();
             var position = 0;
-            foreach (var letter in Text)
+            foreach (var letter in _text)
             {
-                var letterIndex = Font.AtlasText.IndexOf(letter);
+                var letterIndex = _font.AtlasText.IndexOf(letter);
                 if (letterIndex > -1)
                 {
                     DrawLetter(letterIndex, position);
                     position++;
                 }
             }
-            _drawedText = Text;
         }
 
         private void DrawLetter(int letterIndex, int position)
         {
             var textWidth = GetTextWidth();
             var pixelScale = GetPixelScale();
-            for (var y = 0; y < Font.SizeY; y++)
+            for (var y = 0; y < _font.SizeY; y++)
             {
-                for (var x = 0; x < Font.SizeX; x++)
+                for (var x = 0; x < _font.SizeX; x++)
                 {
-                    var color = Font.AtlasTexture.GetPixel(x + Font.SizeX * letterIndex, Font.AtlasTexture.height - y - 1);
+                    var color = _font.AtlasTexture.GetPixel(x + _font.SizeX * letterIndex, _font.AtlasTexture.height - y - 1);
                     if (color.grayscale > 0.5)
                     {
-                        var cube = Instantiate(Cube);
-                        cube.hideFlags = HideFlags.HideAndDontSave;
-                        cube.transform.SetParent(transform);
-                        cube.transform.localScale = new Vector3(pixelScale, pixelScale, pixelScale);
+                        var pixel = Instantiate(_pixel);
+                        pixel.hideFlags = HideFlags.HideAndDontSave;
+                        pixel.transform.SetParent(transform);
+                        pixel.transform.localScale = new Vector3(pixelScale, pixelScale, pixelScale);
                         var offsetX = 0f;
-                        if (TextAlignment == TextAlignment.Center)
+                        if (_textAlignment == TextAlignment.Center)
                         {
                             offsetX = -textWidth / 2;
                         }
-                        else if (TextAlignment == TextAlignment.Right)
+                        else if (_textAlignment == TextAlignment.Right)
                         {
                             offsetX = -textWidth;
                         }
-                        cube.transform.localPosition = new Vector3((x + position * Font.SizeX + offsetX) * pixelScale, (Font.SizeY - y) * pixelScale, 0);
-                        _cubes.Add(cube);
+                        pixel.transform.localPosition = new Vector3((x + position * _font.SizeX + offsetX) * pixelScale, (_font.SizeY - y) * pixelScale, 0);
+                        _cubes.Add(pixel);
                     }
                 }
             }
         }
 
-        private void ClearText()
+        private void DestroyText()
         {
             foreach (var cube in _cubes)
             {
@@ -106,7 +148,6 @@ namespace Ascetic.Unity.PixelText
                     Destroy(cube);
                 }
             }
-            _drawedText = null;
             _cubes.Clear();
         }
     }
