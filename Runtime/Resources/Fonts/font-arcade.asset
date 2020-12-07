@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9f0a9164598c014c9f0f30b7e184cda, type: 3}
-  m_Name: font-arkade
+  m_Name: font-arcade
   m_EditorClassIdentifier: 
   AtlasTexture: {fileID: 2800000, guid: 327cfee0e37d2f940aff766fcc6766d2, type: 3}
   AtlasText: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-., '

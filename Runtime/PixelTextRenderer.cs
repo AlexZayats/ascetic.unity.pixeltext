@@ -7,12 +7,13 @@ namespace Ascetic.Unity.PixelText
     [ExecuteAlways]
     public class PixelTextRenderer : MonoBehaviour
     {
-        //[SerializeField, PropertyField(nameof(DrawOrbits))]
-        public string Text;
+        
         public GameObject Cube;
         public PixelTextFont Font;
-        public float TextSize;
-        public TextAlignment TextAlignment;
+
+        public string Text = "PIXEL TEXT";
+        public float TextSize = 1;
+        public TextAlignment TextAlignment = TextAlignment.Center;
 
         private List<GameObject> _cubes = new List<GameObject>();
         private string _drawedText = null;
