@@ -1,0 +1,11 @@
+{
+  "name": "traning.unity.core",
+  "displayName": "Ascetic's Unity Pixel Text",
+  "version": "1.0.0",
+  "unity": "2019.3",
+  "type": "library",
+  "hideInEditor": false,
+  "dependencies": {
+    "ascetic.unity.core": ""
+  }
+}
