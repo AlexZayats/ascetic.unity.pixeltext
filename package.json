@@ -6,6 +6,6 @@
   "type": "library",
   "hideInEditor": false,
   "dependencies": {
-    "ascetic.unity.core": ""
+    "ascetic.unity.core": "1.0.0"
   }
 }
