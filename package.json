@@ -1,12 +1,29 @@
 {
   "name": "ascetic.unity.pixeltext",
   "displayName": "Ascetic's Unity Pixel Text",
-  "version": "1.0.3",
+  "description": "Unity package for creating 3D pixel text. Contains component, pixel prefabs and fonts.",
+  "version": "1.0.0",
   "unity": "2019.3",
-  "type": "library",
   "hideInEditor": false,
   "dependencies": {
-    "ascetic.unity.core": "1.0.2"
+    "ascetic.unity.core": "1.0.1"
   },
-  "description": "Unity package for creating 3D pixel text. Contains component, pixel prefabs and fonts."
+  "keywords": [
+    "unity3d",
+    "ascetic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexZayats/ascetic.unity.pixeltext.git"
+  },
+  "author": {
+    "name": "Alex Zayats",
+    "email": "a.zayats@outlook.com",
+    "url": "https://ascetic.pro"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexZayats/ascetic.unity.pixeltext/issues"
+  },
+  "homepage": "https://github.com/AlexZayats/ascetic.unity.pixeltext#readme"
 }
