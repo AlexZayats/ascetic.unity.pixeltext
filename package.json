@@ -2,11 +2,11 @@
   "name": "ascetic.unity.pixeltext",
   "displayName": "Ascetic's Unity Pixel Text",
   "description": "Unity package for creating 3D pixel text. Contains component, pixel prefabs and fonts.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2019.3",
   "hideInEditor": false,
   "dependencies": {
-    "ascetic.unity.core": "1.0.1"
+    "ascetic.unity.core": "1.0.2"
   },
   "keywords": [
     "unity3d",
