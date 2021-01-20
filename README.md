@@ -1,5 +1,8 @@
 # Ascetic's Unity Pixel Text
 
+![npm](https://img.shields.io/npm/v/ascetic.unity.pixeltext?style=for-the-badge)
+![npm](https://img.shields.io/npm/dw/ascetic.unity.pixeltext?style=for-the-badge)
+
 Unity package for creating 3D pixel text. Contains component, pixel prefabs and fonts.
 
 ## Installation
