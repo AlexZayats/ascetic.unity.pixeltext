@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/ascetic.unity.pixeltext?style=for-the-badge)](https://www.npmjs.com/package/ascetic.unity.pixeltext)
 [![npm](https://img.shields.io/npm/dw/ascetic.unity.pixeltext?style=for-the-badge)](https://www.npmjs.com/package/ascetic.unity.pixeltext)
+[![GitHub](https://img.shields.io/github/license/alexzayats/ascetic.unity.pixeltext?style=for-the-badge)](https://github.com/AlexZayats/ascetic.unity.pixeltext)
+[![GitHub](https://img.shields.io/github/workflow/status/alexzayats/ascetic.unity.pixeltext/Node.js%20Package?style=for-the-badge)](https://github.com/AlexZayats/ascetic.unity.pixeltext)
 
 Unity package for creating 3D pixel text. Contains component, pixel prefabs and fonts.
 
